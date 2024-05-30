@@ -35,12 +35,29 @@ const Index = () => {
     }
   };
 
+  const clearTodos = () => {
+    setTodos([]);
+  };
+
+  const markAllAsCompleted = () => {
+    const completedTodos = todos.map((todo) => `✔️ ${todo}`);
+    setTodos(completedTodos);
+  };
+
   return (
     <VStack p={8}>
       <Heading mb="8">Todo App ❤️❤️</Heading>
       <HStack>
         <Input value={inputValue} onChange={handleInputChange} onKeyPress={handleKeyPress} placeholder="Add a new task..." />
         <IconButton icon={<FaPlus />} onClick={addTodo} colorScheme="blue" aria-label="Add todo" />
+      </HStack>
+      <HStack mt={4}>
+        <Button onClick={clearTodos} colorScheme="red">
+          Clear All
+        </Button>
+        <Button onClick={markAllAsCompleted} colorScheme="green">
+          Mark All as Completed
+        </Button>
       </HStack>
       <List spacing={3} my={5} w="100%">
         {todos.map((todo, index) => (
