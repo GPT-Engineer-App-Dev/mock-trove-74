@@ -55,9 +55,6 @@ const Index = () => {
         <Button onClick={clearTodos} colorScheme="red">
           Clear All
         </Button>
-        <Button onClick={markAllAsCompleted} colorScheme="green">
-          Mark All as Completed
-        </Button>
       </HStack>
       <List spacing={3} my={5} w="100%">
         {todos.map((todo, index) => (
